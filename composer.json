@@ -1,0 +1,43 @@
+{
+    "name": "pulse/core",
+    "description": "Just a Blogging Platform made with Laravel",
+    "keywords": ["blog", "blogging", "pulse", "cms", "laravel"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zizaco Zizuini",
+            "homepage": "http://www.zizaco.net"
+        },
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "~4.2",
+        "dflydev/markdown": "~1.0",
+        "zizaco/confide": "~4.0",
+    },
+    "require-dev": {
+        "laravel/framework": "~4.2",
+        "phpunit/phpunit": "~4.0",
+        "mockery/mockery": "~0.9",
+        "satooshi/php-coveralls": "~0.7",
+        "squizlabs/php_codesniffer": "~1.5"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations",
+            "src/commands"
+        ],
+        "psr-0": {
+            "Pulse\\Base": "src/",
+            "Pulse\\Cms": "src/",
+            "Pulse\\User": "src/",
+            "Pulse\\Controllers": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "dev"
+}
