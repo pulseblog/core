@@ -41,12 +41,11 @@ class ServiceProvider extends IlluminateServiceProvider
     }
 
     /**
-     * Register the repository that will handle all the database
-     * interaction.
+     * Register the blog routes
      *
      * @return void
      */
-    protected function registerRepository()
+    protected function registerRoutes()
     {
         $router = new Router;
         $router->registerRoutes($this->app['router']);
