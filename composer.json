@@ -31,7 +31,8 @@
             "Pulse\\Base": "src/",
             "Pulse\\Cms": "src/",
             "Pulse\\User": "src/",
-            "Pulse\\Controllers": "src/"
+            "Pulse\\Controllers": "src/",
+            "Pulse\\Support": "src/"
         }
     },
     "extra": {
