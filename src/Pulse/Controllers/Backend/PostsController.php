@@ -9,7 +9,7 @@ use Pulse\Cms\PostRepository;
  *
  * CRUD Controller for the Pulse\Cms\Post resource.
  *
- * @package Pulse\Backend
+ * @package Pulse\Controllers\Backend
  */
 class PostsController extends BaseController
 {
@@ -62,18 +62,18 @@ class PostsController extends BaseController
         $input = Input::all();
 
         if (! $user)
-            return $this->goToAction('Pulse\Backend\PostsController@index');
+            return $this->goToAction('Pulse\Controllers\Backend\PostsController@index');
 
         $post = $this->postRepository->createNew($input, $user);
 
         if (count($post->errors()) == 0) {
             $this->flash('create');
             return $this->goToAction(
-                        'Pulse\Backend\PostsController@edit',
+                        'Pulse\Controllers\Backend\PostsController@edit',
                         ['id' => $post->id ]
                    );
         } else {
-            return $this->goToAction('Pulse\Backend\PostsController@create')
+            return $this->goToAction('Pulse\Controllers\Backend\PostsController@create')
                 ->withInput($input)
                 ->withErrors($post->errors());
         }
@@ -119,10 +119,10 @@ class PostsController extends BaseController
 
         if (count($post->errors()) == 0) {
             $this->flash('update');
-            return $this->goToAction('Pulse\Backend\PostsController@edit', ['id' => $post->id ])
+            return $this->goToAction('Pulse\Controllers\Backend\PostsController@edit', ['id' => $post->id ])
                 ->withInput($input);
         } else {
-            return $this->goToAction('Pulse\Backend\PostsController@edit', ['id' => $post->id ])
+            return $this->goToAction('Pulse\Controllers\Backend\PostsController@edit', ['id' => $post->id ])
                 ->withInput($input)
                 ->withErrors($post->errors());
         }
@@ -140,7 +140,7 @@ class PostsController extends BaseController
 
         $this->flash('delete');
 
-        return $this->goToAction('Pulse\Backend\PostsController@index');
+        return $this->goToAction('Pulse\Controllers\Backend\PostsController@index');
     }
 
     protected function flash($action, $success = true, $resource = 'Post')

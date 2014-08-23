@@ -28,14 +28,14 @@ class PostsControllerTest extends TestCase
         App::instance('Pulse\Cms\PostRepository', $repository);
 
         // Assertion
-        $this->action('GET', 'Pulse\Backend\PostsController@index');
+        $this->action('GET', 'Pulse\Controllers\Backend\PostsController@index');
         $this->assertResponseOk();
     }
 
     public function testShouldGetCreate()
     {
         // Assertion
-        $this->action('GET', 'Pulse\Backend\PostsController@create');
+        $this->action('GET', 'Pulse\Controllers\Backend\PostsController@create');
         $this->assertResponseOk();
     }
 
@@ -54,7 +54,7 @@ class PostsControllerTest extends TestCase
         App::instance('Pulse\Cms\PostRepository', $repository);
 
         // Assertion
-        $this->action('GET', 'Pulse\Backend\PostsController@edit', ['id' => 123456]);
+        $this->action('GET', 'Pulse\Controllers\Backend\PostsController@edit', ['id' => 123456]);
         $this->assertResponseOk();
     }
 
@@ -73,7 +73,7 @@ class PostsControllerTest extends TestCase
         App::instance('Pulse\Cms\PostRepository', $repository);
 
         // Assertion
-        $this->action('GET', 'Pulse\Backend\PostsController@show', ['id' => 123456]);
+        $this->action('GET', 'Pulse\Controllers\Backend\PostsController@show', ['id' => 123456]);
         $this->assertResponseOk();
     }
 
@@ -91,8 +91,8 @@ class PostsControllerTest extends TestCase
         App::instance('Pulse\Cms\PostRepository', $repository);
 
         // Assertion
-        $this->action('DELETE', 'Pulse\Backend\PostsController@destroy', ['id' => 123456]);
-        $this->assertRedirectedToAction('Pulse\Backend\PostsController@index');
+        $this->action('DELETE', 'Pulse\Controllers\Backend\PostsController@destroy', ['id' => 123456]);
+        $this->assertRedirectedToAction('Pulse\Controllers\Backend\PostsController@index');
     }
 
     public function testShouldStoreAPost()
@@ -125,9 +125,9 @@ class PostsControllerTest extends TestCase
         App::instance('Pulse\Cms\PostRepository', $repository);
 
         // Assertion
-        $this->action('POST', 'Pulse\Backend\PostsController@store', $input);
+        $this->action('POST', 'Pulse\Controllers\Backend\PostsController@store', $input);
         $this->assertRedirectedToAction(
-            'Pulse\Backend\PostsController@edit',
+            'Pulse\Controllers\Backend\PostsController@edit',
             ['id' => $post->id ]
         );
     }
@@ -161,9 +161,9 @@ class PostsControllerTest extends TestCase
         App::instance('Pulse\Cms\PostRepository', $repository);
 
         // Assertion
-        $this->action('POST', 'Pulse\Backend\PostsController@store', $input);
+        $this->action('POST', 'Pulse\Controllers\Backend\PostsController@store', $input);
         $this->assertRedirectedToAction(
-            'Pulse\Backend\PostsController@create'
+            'Pulse\Controllers\Backend\PostsController@create'
         );
     }
 
@@ -191,9 +191,9 @@ class PostsControllerTest extends TestCase
         App::instance('Pulse\Cms\PostRepository', $repository);
 
         // Assertion
-        $this->action('PUT', 'Pulse\Backend\PostsController@update', ['id' => 123 ], $input);
+        $this->action('PUT', 'Pulse\Controllers\Backend\PostsController@update', ['id' => 123 ], $input);
         $this->assertRedirectedToAction(
-            'Pulse\Backend\PostsController@edit',
+            'Pulse\Controllers\Backend\PostsController@edit',
             ['id' => $post->id ]
         );
     }

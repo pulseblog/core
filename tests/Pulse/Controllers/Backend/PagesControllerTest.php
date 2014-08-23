@@ -28,14 +28,14 @@ class PagesControllerTest extends TestCase
         App::instance('Pulse\Cms\PageRepository', $repository);
 
         // Assertion
-        $this->action('GET', 'Pulse\Backend\PagesController@index');
+        $this->action('GET', 'Pulse\Controllers\Backend\PagesController@index');
         $this->assertResponseOk();
     }
 
     public function testShouldGetCreate()
     {
         // Assertion
-        $this->action('GET', 'Pulse\Backend\PagesController@create');
+        $this->action('GET', 'Pulse\Controllers\Backend\PagesController@create');
         $this->assertResponseOk();
     }
 
@@ -54,7 +54,7 @@ class PagesControllerTest extends TestCase
         App::instance('Pulse\Cms\PageRepository', $repository);
 
         // Assertion
-        $this->action('GET', 'Pulse\Backend\PagesController@edit', ['id' => 123456]);
+        $this->action('GET', 'Pulse\Controllers\Backend\PagesController@edit', ['id' => 123456]);
         $this->assertResponseOk();
     }
 
@@ -73,7 +73,7 @@ class PagesControllerTest extends TestCase
         App::instance('Pulse\Cms\PageRepository', $repository);
 
         // Assertion
-        $this->action('GET', 'Pulse\Backend\PagesController@show', ['id' => 123456]);
+        $this->action('GET', 'Pulse\Controllers\Backend\PagesController@show', ['id' => 123456]);
         $this->assertResponseOk();
     }
 
@@ -91,8 +91,8 @@ class PagesControllerTest extends TestCase
         App::instance('Pulse\Cms\PageRepository', $repository);
 
         // Assertion
-        $this->action('DELETE', 'Pulse\Backend\PagesController@destroy', ['id' => 123456]);
-        $this->assertRedirectedToAction('Pulse\Backend\PagesController@index');
+        $this->action('DELETE', 'Pulse\Controllers\Backend\PagesController@destroy', ['id' => 123456]);
+        $this->assertRedirectedToAction('Pulse\Controllers\Backend\PagesController@index');
     }
 
     public function testShouldStoreAPage()
@@ -125,9 +125,9 @@ class PagesControllerTest extends TestCase
         App::instance('Pulse\Cms\PageRepository', $repository);
 
         // Assertion
-        $this->action('POST', 'Pulse\Backend\PagesController@store', $input);
+        $this->action('POST', 'Pulse\Controllers\Backend\PagesController@store', $input);
         $this->assertRedirectedToAction(
-            'Pulse\Backend\PagesController@edit',
+            'Pulse\Controllers\Backend\PagesController@edit',
             ['id' => $page->id ]
         );
     }
@@ -161,9 +161,9 @@ class PagesControllerTest extends TestCase
         App::instance('Pulse\Cms\PageRepository', $repository);
 
         // Assertion
-        $this->action('POST', 'Pulse\Backend\PagesController@store', $input);
+        $this->action('POST', 'Pulse\Controllers\Backend\PagesController@store', $input);
         $this->assertRedirectedToAction(
-            'Pulse\Backend\PagesController@create'
+            'Pulse\Controllers\Backend\PagesController@create'
         );
     }
 
@@ -191,9 +191,9 @@ class PagesControllerTest extends TestCase
         App::instance('Pulse\Cms\PageRepository', $repository);
 
         // Assertion
-        $this->action('PUT', 'Pulse\Backend\PagesController@update', ['id' => 123 ], $input);
+        $this->action('PUT', 'Pulse\Controllers\Backend\PagesController@update', ['id' => 123 ], $input);
         $this->assertRedirectedToAction(
-            'Pulse\Backend\PagesController@edit',
+            'Pulse\Controllers\Backend\PagesController@edit',
             ['id' => $page->id ]
         );
     }

@@ -8,7 +8,7 @@ use Pulse\Controllers\BaseController;
  *
  * This controller implements the CMS actions of the visitors (Frontend).
  *
- * @package  Pulse\Frontend
+ * @package  Pulse\Controllers\Frontend
  */
 class CmsController extends BaseController
 {

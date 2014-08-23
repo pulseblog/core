@@ -14,7 +14,7 @@ class UsersControllerTest extends TestCase
     public function testShouldCreate()
     {
         // Request
-        $this->action('GET', 'Pulse\Backend\UsersController@create');
+        $this->action('GET', 'Pulse\Controllers\Backend\UsersController@create');
 
         // Assertion
         $this->assertResponseOk();
@@ -55,10 +55,10 @@ class UsersControllerTest extends TestCase
             });
 
         // Request
-        $this->action('POST', 'Pulse\Backend\UsersController@store', [], $input);
+        $this->action('POST', 'Pulse\Controllers\Backend\UsersController@store', [], $input);
 
         // Assertion
-        $this->assertRedirectedToAction('Pulse\Backend\UsersController@login');
+        $this->assertRedirectedToAction('Pulse\Controllers\Backend\UsersController@login');
     }
 
     public function testShouldNotStore()
@@ -82,16 +82,16 @@ class UsersControllerTest extends TestCase
         App::instance('Pulse\User\Repository', $repo);
 
         // Request
-        $this->action('POST', 'Pulse\Backend\UsersController@store', [], $input);
+        $this->action('POST', 'Pulse\Controllers\Backend\UsersController@store', [], $input);
 
         // Assertion
-        $this->assertRedirectedToAction('Pulse\Backend\UsersController@create');
+        $this->assertRedirectedToAction('Pulse\Controllers\Backend\UsersController@create');
     }
 
     public function testShouldLogin()
     {
         // Request
-        $this->action('GET', 'Pulse\Backend\UsersController@login');
+        $this->action('GET', 'Pulse\Controllers\Backend\UsersController@login');
 
         // Assertion
         $this->assertResponseOk();
@@ -105,7 +105,7 @@ class UsersControllerTest extends TestCase
             ->andReturn(m::mock('Pulse\User\User'));
 
         // Request
-        $this->action('GET', 'Pulse\Backend\UsersController@login');
+        $this->action('GET', 'Pulse\Controllers\Backend\UsersController@login');
 
         // Assertion
         $this->assertRedirectedTo('/');
@@ -129,7 +129,7 @@ class UsersControllerTest extends TestCase
         App::instance('Pulse\User\Repository', $repo);
 
         // Request
-        $this->action('POST', 'Pulse\Backend\UsersController@do_login', [], $input);
+        $this->action('POST', 'Pulse\Controllers\Backend\UsersController@do_login', [], $input);
 
         // Assertion
         $this->assertRedirectedTo('/');
@@ -156,10 +156,10 @@ class UsersControllerTest extends TestCase
         App::instance('Pulse\User\Repository', $repo);
 
         // Request
-        $this->action('POST', 'Pulse\Backend\UsersController@do_login', [], $input);
+        $this->action('POST', 'Pulse\Controllers\Backend\UsersController@do_login', [], $input);
 
         // Assertion
-        $this->assertRedirectedToAction('Pulse\Backend\UsersController@login');
+        $this->assertRedirectedToAction('Pulse\Controllers\Backend\UsersController@login');
     }
 
     public function testShouldNotLoginThrottled()
@@ -184,10 +184,10 @@ class UsersControllerTest extends TestCase
         App::instance('Pulse\User\Repository', $repo);
 
         // Request
-        $this->action('POST', 'Pulse\Backend\UsersController@do_login', [], $input);
+        $this->action('POST', 'Pulse\Controllers\Backend\UsersController@do_login', [], $input);
 
         // Assertion
-        $this->assertRedirectedToAction('Pulse\Backend\UsersController@login');
+        $this->assertRedirectedToAction('Pulse\Controllers\Backend\UsersController@login');
     }
 
     public function testShouldNotLoginNotConfirmed()
@@ -216,10 +216,10 @@ class UsersControllerTest extends TestCase
         App::instance('Pulse\User\Repository', $repo);
 
         // Request
-        $this->action('POST', 'Pulse\Backend\UsersController@do_login', [], $input);
+        $this->action('POST', 'Pulse\Controllers\Backend\UsersController@do_login', [], $input);
 
         // Assertion
-        $this->assertRedirectedToAction('Pulse\Backend\UsersController@login');
+        $this->assertRedirectedToAction('Pulse\Controllers\Backend\UsersController@login');
     }
 
     public function testShouldConfirm()
@@ -234,10 +234,10 @@ class UsersControllerTest extends TestCase
             ->andReturn(true);
 
         // Request
-        $this->action('GET', 'Pulse\Backend\UsersController@confirm', $wildcards);
+        $this->action('GET', 'Pulse\Controllers\Backend\UsersController@confirm', $wildcards);
 
         // Assertion
-        $this->assertRedirectedToAction('Pulse\Backend\UsersController@login');
+        $this->assertRedirectedToAction('Pulse\Controllers\Backend\UsersController@login');
         $this->assertSessionHas('notice');
     }
 
@@ -254,17 +254,17 @@ class UsersControllerTest extends TestCase
             ->andReturn(false);
 
         // Request
-        $this->action('GET', 'Pulse\Backend\UsersController@confirm', $wildcards);
+        $this->action('GET', 'Pulse\Controllers\Backend\UsersController@confirm', $wildcards);
 
         // Assertion
-        $this->assertRedirectedToAction('Pulse\Backend\UsersController@login');
+        $this->assertRedirectedToAction('Pulse\Controllers\Backend\UsersController@login');
         $this->assertSessionHas('error', $errorMsg);
     }
 
     public function testShouldForgotPassword()
     {
         // Request
-        $this->action('GET', 'Pulse\Backend\UsersController@forgot_password');
+        $this->action('GET', 'Pulse\Controllers\Backend\UsersController@forgot_password');
 
         // Assertion
         $this->assertResponseOk();
@@ -282,10 +282,10 @@ class UsersControllerTest extends TestCase
             ->andReturn(true);
 
         // Request
-        $this->action('POST', 'Pulse\Backend\UsersController@do_forgot_password', [], $input);
+        $this->action('POST', 'Pulse\Controllers\Backend\UsersController@do_forgot_password', [], $input);
 
         // Assertion
-        $this->assertRedirectedToAction('Pulse\Backend\UsersController@login');
+        $this->assertRedirectedToAction('Pulse\Controllers\Backend\UsersController@login');
         $this->assertSessionHas('notice');
     }
 
@@ -302,10 +302,10 @@ class UsersControllerTest extends TestCase
             ->andReturn(false);
 
         // Request
-        $this->action('POST', 'Pulse\Backend\UsersController@do_forgot_password', [], $input);
+        $this->action('POST', 'Pulse\Controllers\Backend\UsersController@do_forgot_password', [], $input);
 
         // Assertion
-        $this->assertRedirectedToAction('Pulse\Backend\UsersController@forgot_password');
+        $this->assertRedirectedToAction('Pulse\Controllers\Backend\UsersController@forgot_password');
         $this->assertSessionHas('error', $errorMsg);
     }
 
@@ -315,7 +315,7 @@ class UsersControllerTest extends TestCase
         $wildcards = ['token'=>'123123'];
 
         // Request
-        $this->action('GET', 'Pulse\Backend\UsersController@reset_password', $wildcards);
+        $this->action('GET', 'Pulse\Controllers\Backend\UsersController@reset_password', $wildcards);
 
         // Assertion
         $this->assertResponseOk();
@@ -339,10 +339,10 @@ class UsersControllerTest extends TestCase
         App::instance('Pulse\User\Repository', $repo);
 
         // Request
-        $this->action('POST', 'Pulse\Backend\UsersController@do_reset_password', [], $input);
+        $this->action('POST', 'Pulse\Controllers\Backend\UsersController@do_reset_password', [], $input);
 
         // Assertion
-        $this->assertRedirectedToAction('Pulse\Backend\UsersController@login');
+        $this->assertRedirectedToAction('Pulse\Controllers\Backend\UsersController@login');
     }
 
     public function testShouldNotDoResetPasswordWrongToken()
@@ -363,10 +363,10 @@ class UsersControllerTest extends TestCase
         App::instance('Pulse\User\Repository', $repo);
 
         // Request
-        $this->action('POST', 'Pulse\Backend\UsersController@do_reset_password', [], $input);
+        $this->action('POST', 'Pulse\Controllers\Backend\UsersController@do_reset_password', [], $input);
 
         // Assertion
-        $this->assertRedirectedToAction('Pulse\Backend\UsersController@reset_password', ['token'=>'123123']);
+        $this->assertRedirectedToAction('Pulse\Controllers\Backend\UsersController@reset_password', ['token'=>'123123']);
     }
 
     public function testShouldLogout()
@@ -376,7 +376,7 @@ class UsersControllerTest extends TestCase
             ->once();
 
         // Request
-        $this->action('GET', 'Pulse\Backend\UsersController@logout');
+        $this->action('GET', 'Pulse\Controllers\Backend\UsersController@logout');
 
         // Assertion
         $this->assertRedirectedTo('/');
