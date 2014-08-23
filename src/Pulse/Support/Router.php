@@ -25,9 +25,9 @@ class Router
         |
         */
 
-        $router->get('/',             'Pulse\Frontend\CmsController@indexPosts');
-        $router->get('page-{slug}',   'Pulse\Frontend\CmsController@showPage');
-        $router->get('{slug}',        'Pulse\Frontend\CmsController@showPost');
+        $router->get('/',             'Pulse\Controllers\Frontend\CmsController@indexPosts');
+        $router->get('page-{slug}',   'Pulse\Controllers\Frontend\CmsController@showPage');
+        $router->get('{slug}',        'Pulse\Controllers\Frontend\CmsController@showPost');
 
         /*
         |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ class Router
         $router->group([
             'before' => 'auth',
             'prefix' => 'admin',
-            'namespace' => 'Pulse\Backend'
+            'namespace' => 'Pulse\Controllers\Backend'
             ],
             function() use ($router) {
                 $router->get(   'pages',          'PagesController@index');
@@ -67,15 +67,15 @@ class Router
         |
         */
 
-        // $router->get( 'users/create',                 'Pulse\Backend\UsersController@create');
-        // $router->post('users',                        'Pulse\Backend\UsersController@store');
-        $router->get( 'users/login',                  'Pulse\Backend\UsersController@login');
-        $router->post('users/login',                  'Pulse\Backend\UsersController@do_login');
-        $router->get( 'users/confirm/{code}',         'Pulse\Backend\UsersController@confirm');
-        $router->get( 'users/forgot_password',        'Pulse\Backend\UsersController@forgot_password');
-        $router->post('users/forgot_password',        'Pulse\Backend\UsersController@do_forgot_password');
-        $router->get( 'users/reset_password/{token}', 'Pulse\Backend\UsersController@reset_password');
-        $router->post('users/reset_password',         'Pulse\Backend\UsersController@do_reset_password');
-        $router->get( 'users/logout',                 'Pulse\Backend\UsersController@logout');
+        // $router->get( 'users/create',                 'Pulse\Controllers\Backend\UsersController@create');
+        // $router->post('users',                        'Pulse\Controllers\Backend\UsersController@store');
+        $router->get( 'users/login',                  'Pulse\Controllers\Backend\UsersController@login');
+        $router->post('users/login',                  'Pulse\Controllers\Backend\UsersController@do_login');
+        $router->get( 'users/confirm/{code}',         'Pulse\Controllers\Backend\UsersController@confirm');
+        $router->get( 'users/forgot_password',        'Pulse\Controllers\Backend\UsersController@forgot_password');
+        $router->post('users/forgot_password',        'Pulse\Controllers\Backend\UsersController@do_forgot_password');
+        $router->get( 'users/reset_password/{token}', 'Pulse\Controllers\Backend\UsersController@reset_password');
+        $router->post('users/reset_password',         'Pulse\Controllers\Backend\UsersController@do_reset_password');
+        $router->get( 'users/logout',                 'Pulse\Controllers\Backend\UsersController@logout');
     }
 }
