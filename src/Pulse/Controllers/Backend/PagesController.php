@@ -9,7 +9,7 @@ use Pulse\Cms\PageRepository;
  *
  * CRUD Controller for Pulse\Cms\Page resource.
  *
- * @package Pulse\Backend
+ * @package Pulse\Controllers\Backend
  */
 class PagesController extends BaseController {
 
@@ -62,17 +62,17 @@ class PagesController extends BaseController {
         $input = Input::all();
 
         if (! $user)
-            return $this->goToAction('Pulse\Backend\PagesController@index');
+            return $this->goToAction('Pulse\Controllers\Backend\PagesController@index');
 
         $page = $this->pageRepository->createNew($input, $user);
 
         if (count($page->errors()) == 0) {
             return $this->goToAction(
-                        'Pulse\Backend\PagesController@edit',
+                        'Pulse\Controllers\Backend\PagesController@edit',
                         ['id' => $page->id ]
                    );
         } else {
-            return $this->goToAction('Pulse\Backend\PagesController@create')
+            return $this->goToAction('Pulse\Controllers\Backend\PagesController@create')
                 ->withInput($input)
                 ->withErrors($page->errors());
         }
@@ -117,10 +117,10 @@ class PagesController extends BaseController {
         $page = $this->pageRepository->update($id, $input);
 
         if (! $page->errors()) {
-            return $this->goToAction('Pulse\Backend\PagesController@edit', ['id' => $page->id ])
+            return $this->goToAction('Pulse\Controllers\Backend\PagesController@edit', ['id' => $page->id ])
                 ->withInput($input);
         } else {
-            return $this->goToAction('Pulse\Backend\PagesController@edit', ['id' => $page->id ])
+            return $this->goToAction('Pulse\Controllers\Backend\PagesController@edit', ['id' => $page->id ])
                 ->withInput($input)
                 ->withErrors($page->errors());
         }
@@ -136,7 +136,7 @@ class PagesController extends BaseController {
     {
         $deleted = $this->pageRepository->delete($id);
 
-        return $this->goToAction('Pulse\Backend\PagesController@index');
+        return $this->goToAction('Pulse\Controllers\Backend\PagesController@index');
     }
 
 }

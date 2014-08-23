@@ -26,7 +26,7 @@ class CmsControllerTest extends TestCase
         App::instance('Pulse\Cms\PostRepository', $repo);
 
         // Request
-        $this->action('GET', 'Pulse\Frontend\CmsController@indexPosts', ['page'=>$pagination]);
+        $this->action('GET', 'Pulse\Controllers\Frontend\CmsController@indexPosts', ['page'=>$pagination]);
 
         // Assertion
         $this->assertResponseOk();
@@ -49,7 +49,7 @@ class CmsControllerTest extends TestCase
         App::instance('Pulse\Cms\PostRepository', $repo);
 
         // Request
-        $this->action('GET', 'Pulse\Frontend\CmsController@showPost', ['slug'=>$slug]);
+        $this->action('GET', 'Pulse\Controllers\Frontend\CmsController@showPost', ['slug'=>$slug]);
 
         // Assertion
         $this->assertResponseOk();
@@ -72,7 +72,7 @@ class CmsControllerTest extends TestCase
         App::instance('Pulse\Cms\PageRepository', $repo);
 
         // Request
-        $this->action('GET', 'Pulse\Frontend\CmsController@showPage', ['slug'=>$slug]);
+        $this->action('GET', 'Pulse\Controllers\Frontend\CmsController@showPage', ['slug'=>$slug]);
 
         // Assertion
         $this->assertResponseOk();
