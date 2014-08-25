@@ -38,6 +38,7 @@ class ServiceProvider extends IlluminateServiceProvider
     {
         $this->registerRoutes();
         $this->registerCommands();
+        $this->registerViews();
     }
 
     /**
@@ -58,11 +59,15 @@ class ServiceProvider extends IlluminateServiceProvider
      */
     protected function registerCommands()
     {
-        $this->app->bind('command.pulse.install', function($app)
-        {
+        $this->app->bind('command.pulse.install', function ($app) {
             return new InstallCommand($app);
         });
 
         $this->commands('command.pulse.install');
+    }
+
+    protected function registerViews()
+    {
+        $this->app->view->addNamespace('pulse', __DIR__.'/../../views');
     }
 }
