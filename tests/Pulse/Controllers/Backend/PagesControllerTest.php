@@ -1,6 +1,6 @@
 <?php namespace Pulse\Controllers\Backend;
 
-use TestCase;
+use Pulse\Base\TestCase;
 use Mockery as m;
 use App, Confide, Lang;
 use Pulse\Cms\Page;

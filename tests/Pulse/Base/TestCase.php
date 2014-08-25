@@ -1,7 +1,32 @@
-<?php
+<?php namespace Pulse\Base;
 
-class TestCase extends PHPUnit_Framework_TestCase
+use PHPUnit_Framework_TestCase;
+use Illuminate\Container\Container;
+
+abstract class TestCase extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Setup for tests
+     */
+    public function setUp()
+    {
+        $this->prepareApplication();
+    }
+
+    /**
+     * Creates a new IoC container instance
+     *
+     * @return Illuminate\Container\Container
+     */
+    protected function prepareApplication()
+    {
+        global $app;
+
+        $app = new Container;
+
+        return $app;
+    }
+
     /**
      * Actually runs a protected method of the given object.
      * @param       $obj

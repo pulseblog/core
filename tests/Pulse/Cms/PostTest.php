@@ -1,6 +1,6 @@
 <?php namespace Pulse\Cms;
 
-use TestCase;
+use Pulse\Base\TestCase;
 
 class PostTest extends TestCase
 {

@@ -1,6 +1,6 @@
 <?php namespace Pulse\Controllers\Frontend;
 
-use TestCase;
+use Pulse\Base\TestCase;
 use Mockery as m;
 use App;
 

@@ -1,7 +1,7 @@
 <?php namespace Pulse\Cms;
 
 use App;
-use TestCase;
+use Pulse\Base\TestCase;
 use Mockery as m;
 
 class PresenterTest extends TestCase

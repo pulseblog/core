@@ -26,7 +26,7 @@
         "classmap": [
             "src/migrations",
             "src/commands",
-            "tests/TestCase.php"
+            "tests/Pulse/Base/TestCase.php"
         ],
         "psr-0": {
             "Pulse\\Base": "src/",
