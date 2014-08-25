@@ -1,22 +1,8 @@
 <?php
 
-abstract class TestCase extends Illuminate\Foundation\Testing\TestCase {
-
-	/**
-	 * Creates the application.
-	 *
-	 * @return \Symfony\Component\HttpKernel\HttpKernelInterface
-	 */
-	public function createApplication()
-	{
-		$unitTesting = true;
-
-		$testEnvironment = 'testing';
-
-		return require __DIR__.'/../../bootstrap/start.php';
-	}
-
-	/**
+class TestCase extends PHPUnit_Framework_TestCase
+{
+    /**
      * Actually runs a protected method of the given object.
      * @param       $obj
      * @param       $method
@@ -28,10 +14,11 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase {
         $methodObj = new ReflectionMethod(get_class($obj), $method);
         $methodObj->setAccessible(true);
 
-        if(is_object($args))
+        if (is_object($args)) {
             $args = [$args];
-        else
+        } else {
             $args = (array) $args;
+        }
 
         return $methodObj->invokeArgs($obj, $args);
     }

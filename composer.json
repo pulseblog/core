@@ -25,7 +25,8 @@
     "autoload": {
         "classmap": [
             "src/migrations",
-            "src/commands"
+            "src/commands",
+            "tests/TestCase.php"
         ],
         "psr-0": {
             "Pulse\\Base": "src/",
