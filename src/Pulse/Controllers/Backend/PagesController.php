@@ -37,7 +37,7 @@ class PagesController extends BaseController {
 
         $pages = $this->pageRepository->all($page);
 
-        return $this->render('backend.pages.index', compact('pages'));
+        return $this->render('pulse::backend.pages.index', compact('pages'));
     }
 
     /**
@@ -48,7 +48,7 @@ class PagesController extends BaseController {
     public function create()
     {
         $page = App::make('Pulse\Cms\Page');
-        return $this->render('backend.pages.create', compact('page'));
+        return $this->render('pulse::backend.pages.create', compact('page'));
     }
 
     /**
@@ -88,7 +88,7 @@ class PagesController extends BaseController {
     {
         $page = $this->pageRepository->findOrFail($id);
 
-        return $this->render('backend.pages.show');
+        return $this->render('pulse::backend.pages.show');
     }
 
     /**
@@ -101,7 +101,7 @@ class PagesController extends BaseController {
     {
         $page = $this->pageRepository->findOrFail($id);
 
-        return $this->render('backend.pages.edit', ['page' => $page]);
+        return $this->render('pulse::backend.pages.edit', ['page' => $page]);
     }
 
     /**

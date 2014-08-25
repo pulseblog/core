@@ -37,7 +37,7 @@ class PostsController extends BaseController
 
         $posts = $this->postRepository->all($page);
 
-        return $this->render('backend.posts.index', compact('posts'));
+        return $this->render('pulse::backend.posts.index', compact('posts'));
     }
 
     /**
@@ -48,7 +48,7 @@ class PostsController extends BaseController
     public function create()
     {
         $post = App::make('Pulse\Cms\Post');
-        return $this->render('backend.posts.create', compact('post'));
+        return $this->render('pulse::backend.posts.create', compact('post'));
     }
 
     /**
@@ -89,7 +89,7 @@ class PostsController extends BaseController
     {
         $post = $this->postRepository->findOrFail($id);
 
-        return $this->render('backend.posts.show');
+        return $this->render('pulse::backend.posts.show');
     }
 
     /**
@@ -102,7 +102,7 @@ class PostsController extends BaseController
     {
         $post = $this->postRepository->findOrFail($id);
 
-        return $this->render('backend.posts.edit', ['post' => $post]);
+        return $this->render('pulse::backend.posts.edit', ['post' => $post]);
     }
 
     /**
