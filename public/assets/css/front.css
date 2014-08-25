@@ -528,7 +528,7 @@ l-horizontal {
 }
 .titlebar {
   background-color: #000000;
-  background-image: url("/assets/img/header.jpg");
+  background-image: url("../img/header.jpg");
   background-position: center;
   background-size: 100%;
   background-size: cover;
