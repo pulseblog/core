@@ -3,7 +3,7 @@
 @section ('breadcrumb')
     <ul class='breadcrumb'>
         <li>Pulse</li>
-        <li>{{ link_to_action('Pulse\Backend\PostsController@index', 'Posts') }}</li>
+        <li>{{ link_to_action('Pulse\Controllers\Backend\PostsController@index', 'Posts') }}</li>
         <li>New Post</li>
     </ul>
 @stop

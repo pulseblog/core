@@ -3,13 +3,13 @@
         Form::model(
             $page,
             [
-                'action' => ['Pulse\Backend\PagesController@update', $page->id],
+                'action' => ['Pulse\Controllers\Backend\PagesController@update', $page->id],
                 'method' => 'PUT',
             ]
         )
     }}
 @else
-    {{ Form::model($page, [ 'action' => 'Pulse\Backend\PagesController@store' ]) }}
+    {{ Form::model($page, [ 'action' => 'Pulse\Controllers\Backend\PagesController@store' ]) }}
 @endif
     <fieldset>
         {{ Form::label('title', trans('resources.attributes.Page.title')) }}
@@ -33,9 +33,9 @@
 
     <div class='well'>
         {{ Form::submit('Salvar Pagina') }}
-        {{ link_to_action('Pulse\Backend\PagesController@index', 'Cancelar', null, ['class'=>'btn is-inverted']) }}
+        {{ link_to_action('Pulse\Controllers\Backend\PagesController@index', 'Cancelar', null, ['class'=>'btn is-inverted']) }}
         @if ($page->id)
-            {{ link_to_action('Pulse\Backend\PagesController@destroy', 'Excluir', ['id'=>$page->id], ['method'=>'delete', 'class'=>'btn is-danger']) }}
+            {{ link_to_action('Pulse\Controllers\Backend\PagesController@destroy', 'Excluir', ['id'=>$page->id], ['method'=>'delete', 'class'=>'btn is-danger']) }}
         @endif
     </div>
 

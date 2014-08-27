@@ -2,13 +2,13 @@
     {{ Form::model(
             $post,
             [
-                'action' => ['Pulse\Backend\PostsController@update', $post->id],
+                'action' => ['Pulse\Controllers\Backend\PostsController@update', $post->id],
                 'method' => 'PUT',
             ]
         )
     }}
 @else
-    {{ Form::model($post, [ 'action' => 'Pulse\Backend\PostsController@store' ]) }}
+    {{ Form::model($post, [ 'action' => 'Pulse\Controllers\Backend\PostsController@store' ]) }}
 @endif
     <fieldset>
         {{ Form::label('title', trans('resources.attributes.Post.title')) }}
@@ -32,9 +32,9 @@
 
     <div class='well'>
         {{ Form::submit('Salvar Pagina') }}
-        {{ link_to_action('Pulse\Backend\PostsController@index', 'Cancelar', null, ['class'=>'btn is-inverted']) }}
+        {{ link_to_action('Pulse\Controllers\Backend\PostsController@index', 'Cancelar', null, ['class'=>'btn is-inverted']) }}
         @if ($post->id)
-            {{ link_to_action('Pulse\Backend\PostsController@destroy', 'Excluir', ['id'=>$post->id], ['method'=>'delete', 'class'=>'btn is-danger']) }}
+            {{ link_to_action('Pulse\Controllers\Backend\PostsController@destroy', 'Excluir', ['id'=>$post->id], ['method'=>'delete', 'class'=>'btn is-danger']) }}
         @endif
     </div>
 

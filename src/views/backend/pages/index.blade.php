@@ -10,7 +10,7 @@
 @section ('content')
     <div class="l-block-1">
         <div class='toolbar'>
-            {{ link_to_action('Pulse\Backend\PagesController@create', 'Criar página', null, ['class'=>'btn']) }}
+            {{ link_to_action('Pulse\Controllers\Backend\PagesController@create', 'Criar página', null, ['class'=>'btn']) }}
         </div>
 
         @if ( $pages && count($pages) > 0 )
@@ -30,7 +30,7 @@
                         <tr>
                             <td>{{
                                     link_to_action(
-                                      'Pulse\Backend\PagesController@show',
+                                      'Pulse\Controllers\Backend\PagesController@show',
                                       $page->title,
                                       ['id' => $page->id ]
                                     )
@@ -42,7 +42,7 @@
                             <td>
                                 {{
                                     link_to_action(
-                                      'Pulse\Backend\PagesController@edit',
+                                      'Pulse\Controllers\Backend\PagesController@edit',
                                       'Editar',
                                       ['id' => $page->id ]
                                     )
@@ -55,7 +55,7 @@
         @else
             <div class='well'>
                 Não existe nenhuma página criada,
-                {{ link_to_action('Pulse\Backend\PagesController@create', 'crie a primeira!') }}
+                {{ link_to_action('Pulse\Controllers\Backend\PagesController@create', 'crie a primeira!') }}
             </div>
         @endif
     </div>
