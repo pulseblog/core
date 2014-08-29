@@ -45,9 +45,9 @@ class Presenter
 
         // Due to the polymorphy
         if($this->instance instanceOf Post) {
-            return View::make('front.posts._display', $viewVars);
+            return View::make('pulse::front.posts._display', $viewVars);
         } else {
-            return View::make('front.pages._display', $viewVars);
+            return View::make('pulse::front.pages._display', $viewVars);
         }
     }
 }

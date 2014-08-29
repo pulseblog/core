@@ -1,4 +1,4 @@
-@extends ('backend.templates.main')
+@extends ('pulse::backend.templates.main')
 
 @section ('breadcrumb')
     <ul class='breadcrumb'>

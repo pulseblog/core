@@ -1,4 +1,4 @@
-@extends ('backend.templates.main')
+@extends ('pulse::backend.templates.main')
 
 @section ('breadcrumb')
     <ul class='breadcrumb'>
@@ -10,6 +10,6 @@
 
 @section ('content')
     <div class="l-block-1">
-        @include ('backend.pages._form')
+        @include ('pulse::backend.pages._form')
     </div>
 @stop

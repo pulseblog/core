@@ -68,6 +68,12 @@ class ServiceProvider extends IlluminateServiceProvider
 
     protected function registerViews()
     {
-        $this->app->view->addNamespace('pulse', __DIR__.'/../../views');
+        $this->app->view->addNamespace(
+            'pulse', 
+            array(
+                app_path().'/views/packages/pulse/core',
+                __DIR__.'/../../views'
+            )
+        );
     }
 }
