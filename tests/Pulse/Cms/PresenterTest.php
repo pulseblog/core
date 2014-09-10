@@ -28,17 +28,17 @@ class PresenterTest extends TestCase
     {
         // Set
         $presenter = new Presenter;
-        $mdParser = m::mock('dflydev\markdown\MarkdownExtraParser');
+        $mdParser = m::mock('Michelf\MarkdownExtra');
         $instance = App::make('Pulse\Cms\Page');
         $instance->title   = 'Page Title';
         $instance->content = 'brutal content';
 
         // Expectation
-        $mdParser->shouldReceive('transformMarkdown')
+        $mdParser->shouldReceive('transform')
             ->with($instance->content)
             ->andReturn('processed content');
 
-        App::instance('dflydev\markdown\MarkdownExtraParser', $mdParser);
+        App::instance('Michelf\MarkdownExtra', $mdParser);
 
         $shouldHas = [
             'Page Title',
