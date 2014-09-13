@@ -34,9 +34,9 @@ class Presenter
      */
     public function display()
     {
-        $mdParser = App::make('dflydev\markdown\MarkdownExtraParser');
+        $mdParser = App::make('Michelf\MarkdownExtra');
 
-        $htmlContent = $mdParser->transformMarkdown($this->instance->content);
+        $htmlContent = $mdParser->transform($this->instance->content);
 
         $viewVars = [
             'page' => $this->instance,
